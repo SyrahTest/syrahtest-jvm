@@ -1,0 +1,47 @@
+<!--
+  ~     This file is part of SyrahTest
+  ~
+  ~     SyrahTest is free software: you can redistribute it and/or modify
+  ~     it under the terms of the GNU General Public License as published by
+  ~     the Free Software Foundation, either version 3 of the License, or
+  ~     (at your option) any later version.
+  ~
+  ~     SyrahTest is distributed in the hope that it will be useful,
+  ~     but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~     GNU General Public License for more details.
+  ~
+  ~     You should have received a copy of the GNU General Public License
+  ~     along with SyrahTest.  If not, see <http://www.gnu.org/licenses/>.
+  -->
+
+<MappingDefinition>
+    <MapItem elementLocator="//elementName" dataAttribute="ColumnName" />
+    <MapItem elementLocator="//elementName" attributeName="attribute" dataAttribute="ColumnName" />
+
+    <MapItemSet ref="shared-mapping.xml" />
+
+    <!--
+      Targeted DataSources:
+        * Excel (xls/xlsx)
+        * Google Spreadsheets https://developers.google.com/google-apps/spreadsheets/?hl=en
+        * JDBC - Realtime or cached
+    -->
+
+    <!-- A datasource can be defined in the application context -->
+    <DataLink dataSource="GoogleDataSource" dataTable="GoogleSheet" >
+    </DataLink>
+
+    <!-- A datasource can be defined inline -->
+    <DataLink dataFile="ExcelFile.xls" dataTable="SheetName" sourceAttr="" targetAttr="" cache="true" >
+    </DataLink>
+
+    <!-- Allow reference to commonly used data sources, but to override attributes at this scope -->
+    <DataLink ref="SharedDataLink" sourceAttr="" targetAttr="" >
+    </DataLink>
+
+    <!-- A datasource can be defined in the application context.  JDBC allows for multiple table joins into a single result set serving as the in memory datasource -->
+    <DataLink dataSource="JDBCDataSource" dataQuery="Select * from NewSource n where n.targetField={{sourceField}}" stream="true" >
+    </DataLink>
+
+</MappingDefinition>

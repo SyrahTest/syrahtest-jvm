@@ -15,25 +15,21 @@
  *     along with SyrahTest.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package org.syrahtest.core;
+package org.syrahtest.core.transform;
 
 /**
+ * A transform instruction is used to apply one or more data source attributes to a target payload.
+ * <ol>
+ * Transforms that are supported:
+ *   <li>Locate an element using an expression and replace it with a literal value</li>
+ *
+ * </ol>
+ *
+ *
  * Created by Nate on 10/2/2015.
  */
-public class DataMapper {
+public class TransformInstruction {
 
-    //basic data mapping
-    //transform instruction
-    //transform collection
-
-    //transform xml
-    //transform json
-
-    //validation
-    //logging
-
-    //relational data
-
-
-
+    public TransformInstruction(String expression, String literalReplacementValue) {
+    }
 }

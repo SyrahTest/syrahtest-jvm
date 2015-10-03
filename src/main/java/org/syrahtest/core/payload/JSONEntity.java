@@ -15,20 +15,10 @@
  *     along with SyrahTest.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package org.syrahtest.core;
-
-import org.junit.Test;
-import org.syrahtest.core.transform.TransformInstruction;
+package org.syrahtest.core.payload;
 
 /**
- *
- * Created by Nate on 10/2/2015.
+ * Created by Nate on 10/3/2015.
  */
-public class TransformInstructionTest {
-
-    @Test
-    public void literalValue_AlphaNumeric(){
-        TransformInstruction i = new TransformInstruction("/xpath/expression", "literalReplacementValue");
-
-    }
+public class JSONEntity {
 }
