@@ -1,0 +1,14 @@
+{
+  "response": {
+    "status": "success",
+    "code": 0,
+    "wineList": [
+      {
+        "color": "red"
+      },
+      {
+        "color": "white"
+      }
+    ]
+  }
+}

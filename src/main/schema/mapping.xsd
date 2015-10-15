@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="MapItemSet">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute type="xs:string" name="ref"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MappingDefinition">
+    <xs:annotation>
+      <xs:documentation>~     This file is part of SyrahTest
+  ~
+  ~     SyrahTest is free software: you can redistribute it and/or modify
+  ~     it under the terms of the GNU General Public License as published by
+  ~     the Free Software Foundation, either version 3 of the License, or
+  ~     (at your option) any later version.
+  ~
+  ~     SyrahTest is distributed in the hope that it will be useful,
+  ~     but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~     GNU General Public License for more details.
+  ~
+  ~     You should have received a copy of the GNU General Public License
+  ~     along with SyrahTest.  If not, see &lt;http://www.gnu.org/licenses/>.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="MapItem" maxOccurs="unbounded" minOccurs="0"/>
+        <xs:element ref="MapItemSet"/>
+        <xs:element ref="DataLink" maxOccurs="unbounded" minOccurs="0">
+          <xs:annotation>
+            <xs:documentation>Targeted DataSources:
+        * Excel (xls/xlsx)
+        * Google Spreadsheets https://developers.google.com/google-apps/spreadsheets/?hl=en
+        * JDBC - Realtime or cached
+     A datasource can be defined in the application context  A datasource can be defined inline  Allow reference to commonly used data sources, but to override attributes at this scope  A datasource can be defined in the application context.  JDBC allows for multiple table joins into a single result set serving as the in memory datasource</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MapItem">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute type="xs:string" name="elementLocator" use="optional"/>
+          <xs:attribute type="xs:string" name="dataAttribute" use="optional"/>
+          <xs:attribute type="xs:string" name="attributeName" use="optional"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DataLink">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute type="xs:string" name="dataSource" use="optional"/>
+          <xs:attribute type="xs:string" name="dataTable" use="optional"/>
+          <xs:attribute type="xs:string" name="dataFile" use="optional"/>
+          <xs:attribute type="xs:string" name="sourceAttr" use="optional"/>
+          <xs:attribute type="xs:string" name="targetAttr" use="optional"/>
+          <xs:attribute type="xs:string" name="cache" use="optional"/>
+          <xs:attribute type="xs:string" name="ref" use="optional"/>
+          <xs:attribute type="xs:string" name="dataQuery" use="optional"/>
+          <xs:attribute type="xs:string" name="stream" use="optional"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

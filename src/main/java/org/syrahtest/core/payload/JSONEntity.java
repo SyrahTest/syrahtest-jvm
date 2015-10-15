@@ -21,4 +21,6 @@ package org.syrahtest.core.payload;
  * Created by Nate on 10/3/2015.
  */
 public class JSONEntity {
+
+
 }
