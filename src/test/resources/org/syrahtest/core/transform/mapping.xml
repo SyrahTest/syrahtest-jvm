@@ -29,7 +29,7 @@
     -->
 
     <!-- A datasource can be defined in the application context -->
-    <DataLink dataSource="GoogleDataSource" dataTable="GoogleSheet" >
+    <DataLink IDataSource="GoogleDataSource" dataTable="GoogleSheet" >
     </DataLink>
 
     <!-- A datasource can be defined inline -->
@@ -41,7 +41,7 @@
     </DataLink>
 
     <!-- A datasource can be defined in the application context.  JDBC allows for multiple table joins into a single result set serving as the in memory datasource -->
-    <DataLink dataSource="JDBCDataSource" dataQuery="Select * from NewSource n where n.targetField={{sourceField}}" stream="true" >
+    <DataLink IDataSource="JDBCDataSource" dataQuery="Select * from NewSource n where n.targetField={{sourceField}}" stream="true" >
     </DataLink>
 
 </MappingDefinition>

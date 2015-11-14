@@ -23,9 +23,11 @@ dependencies {
     jaxb 'com.sun.xml.bind:jaxb-impl:2.2.7-b41'
     jaxb 'javax.xml.bind:jaxb-api:2.2.7'
 
+    testCompile 'org.jmockit:jmockit:1.20'
     testCompile 'junit:junit:4.11'
 
     compile 'org.codehaus.groovy:groovy-all:2.3.11'
+    compile 'com.jayway.jsonpath:json-path:2.0.0'
 
 }
 
