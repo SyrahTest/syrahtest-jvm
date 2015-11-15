@@ -26,6 +26,7 @@ dependencies {
     testCompile 'org.jmockit:jmockit:1.20'
     testCompile 'junit:junit:4.11'
 
+    compile 'org.apache.poi:poi-ooxml:3.13'
     compile 'org.codehaus.groovy:groovy-all:2.3.11'
     compile 'com.jayway.jsonpath:json-path:2.0.0'
 
@@ -33,6 +34,18 @@ dependencies {
 
 jaxb {
     xsdDir = "src/main/schema"
+    xjc {
+        destinationDir = "src/generated/java/xsd"
+        generatePackage = "org.syrahtest.core.mapping"
+    }
+}
+
+sourceSets {
+    main {
+        java {
+            srcDir file('src/generated/java/xsd')
+        }
+    }
 }
 
 repositories {
