@@ -1,5 +1,7 @@
 # Welcome to SyrahTest
 
+https://travis-ci.org/SyrahTest/syrahtest-jvm.svg?branch=master
+
 SyrahTest is a sweet API that pairs well with other test automation tools that support JVM Languages.
 
 Note: SyrahTest is currently under development.  This page represents the goals and final deliverables of the project at some point in the future.  If you are interested in any of the features please provide feedback or consider contributing.
@@ -35,4 +37,8 @@ SyrahTest is designed to integrate with tools you're already using, or it can be
 * Annotations allow data sources to be configured and made available inside of test methods
 * An assertion framework allows multiple assertions to be made inside of a test without failing the test immediately 
 * A number of Aspects are available for you to easily attach SyrahTest to your existing test suites.
+
+
+
+Given a JSON payload or a HTML/XML payload
 
