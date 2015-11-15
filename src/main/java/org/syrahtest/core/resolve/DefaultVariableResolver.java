@@ -12,7 +12,7 @@ public class DefaultVariableResolver implements IVariableResolver {
   public static final String VARIABLE_STOP_STRING = "}}";
 
   @Override
-  public String resolveVariables(String searchString, IDataSource IDataSource) {
+  public String resolveVariables(String searchString, IDataSource dataSource) {
 
     StringBuilder newString = new StringBuilder();
     int cursor = 0;
@@ -21,7 +21,7 @@ public class DefaultVariableResolver implements IVariableResolver {
     while( tokenStart > -1 ){
       int tokenEnd = searchString.indexOf(VARIABLE_STOP_STRING, tokenStart);
       String variableName = searchString.substring(tokenStart+2, tokenEnd);
-      String variableValue = IDataSource.getValue(variableName);
+      String variableValue = dataSource.getValue(variableName);
 
       newString.append(searchString.substring(cursor, tokenStart));
 

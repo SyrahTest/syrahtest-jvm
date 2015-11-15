@@ -12,18 +12,37 @@ import static org.junit.Assert.assertSame;
 /**
  * Created by nate on 11/14/15.
  */
+@DataSource(dialect = DataSource.Dialect.JSON, data = "{ token: \"Class Value\"}")
 public class DataSourceAnnotationTest {
 
-  @DataSource( dialect= DataSource.Dialect.JSON, data="{ token: \"Value\"}" )
   @Test
-  public void replaceTokenInTestMethodAnnotatedWithDataSource(){
-
+  public void getDataSourceInContextSetsActiveContext() {
     IDataSource dsc = DataStore.get().getDataSourceInContext();
     IDataSource ads = DataStore.get().getActiveDataSource();
-
     assertSame(dsc, ads);
+  }
 
-    String result = new DefaultVariableResolver().resolveVariables("some {{token}}", ads);
-    assertEquals("some Value", result);
+  @Test
+  public void replaceTokenInTestMethodAnnotatedWithDataSourceFromClass() {
+    String result = getDataSourceVariable("some {{token}}");
+    assertEquals("some Class Value", result);
+  }
+
+  @DataSource(dialect = DataSource.Dialect.JSON, data = "{ token: \"Method Value\"}")
+  @Test
+  public void replaceTokenInTestMethodAnnotatedWithDataSource() {
+    String result = getDataSourceVariable("some {{token}}");
+    assertEquals("some Method Value", result);
+  }
+
+  @Test
+  public void replaceTokenInTestMethodAnnotatedWithDataSourceFromClassUsingJSONExpression() {
+    String result = getDataSourceVariable("some {{$.token}}");
+    assertEquals("some Class Value", result);
+  }
+
+  private String getDataSourceVariable(String searchString) {
+    IDataSource dsc = DataStore.get().getDataSourceInContext();
+    return new DefaultVariableResolver().resolveVariables(searchString, dsc);
   }
 }

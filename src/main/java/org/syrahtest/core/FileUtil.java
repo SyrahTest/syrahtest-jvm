@@ -13,6 +13,7 @@ import static java.nio.file.Files.readAllBytes;
 public class FileUtil {
 
   public static String getClasspathFileAsString(String path) throws URISyntaxException, IOException {
+
     Path p = Paths.get(FileUtil.class.getClassLoader().getResource(path).toURI());
     return new String(readAllBytes(p));
   }

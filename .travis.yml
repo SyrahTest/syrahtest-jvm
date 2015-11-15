@@ -1,2 +1,17 @@
 language: java
 jdk: oraclejdk8
+
+before_script:
+  - pip install --user codecov
+
+after_success:
+  - codecov
+
+notifications:
+  email:
+    recipients:
+      - codecounselor@gmail.com
+    on_success: change  # [always|never|change] default: change
+    on_failure: always  # default: always
+
+# https://www.theguardian.com/info/developer-blog/2014/sep/16/shipping-from-github-to-maven-central-and-s3-using-travis-ci

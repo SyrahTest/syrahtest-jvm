@@ -16,7 +16,8 @@ public class JSONDataSource implements IDataSource {
 
   @Override
   public String getValue(String parameter) {
-    return JsonPath.read(jsonDoc, "$." + parameter);
+    String jsonExpression = parameter.startsWith("$") ? parameter : "$." + parameter;
+    return JsonPath.read(jsonDoc, jsonExpression);
   }
 
 }
