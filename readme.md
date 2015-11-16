@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.org/SyrahTest/syrahtest-jvm.svg?branch=master)](https://travis-ci.org/SyrahTest/syrahtest-jvm)
 [![Test Coverage](https://img.shields.io/codecov/c/github/SyrahTest/syrahtest-jvm.svg)](https://codecov.io/github/SyrahTest)
+[![Dependency Status](https://www.versioneye.com/user/projects/564921a2cc00b00019000000/badge.svg?style=flat)](https://www.versioneye.com/user/projects/564921a2cc00b00019000000)
 
 SyrahTest is a sweet API that pairs well with other test automation tools that support JVM Languages.
 
