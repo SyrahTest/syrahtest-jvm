@@ -15,6 +15,8 @@ public @interface DataSource {
   /** Provide json data inline using this attribute */
   String data() default "";
 
+  String file() default "";
+
   public enum Dialect{
     JSON, XML, XLS, XLSX, SQL;
   }

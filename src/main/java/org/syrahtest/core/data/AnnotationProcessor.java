@@ -1,6 +1,5 @@
 package org.syrahtest.core.data;
 
-import lombok.extern.java.Log;
 import lombok.extern.slf4j.Slf4j;
 import org.syrahtest.core.data.annotation.DataSource;
 
@@ -72,9 +71,9 @@ public class AnnotationProcessor {
     DataSourceKey key = null;
     if (annotation != null) {
       if ("".equals(annotation.data())) {
-        key = DataSourceKey.createCacheableDataSourceKey(annotation.dialect(), locationKey);
+        key = DataSourceKey.createCacheableDataSourceKey(annotation, locationKey);
       } else {
-        key = DataSourceKey.createNonCacheableDataSourceKey(annotation.dialect(), annotation.data());
+        key = DataSourceKey.createNonCacheableDataSourceKey(annotation);
       }
     }
     return key;

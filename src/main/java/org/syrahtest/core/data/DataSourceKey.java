@@ -7,23 +7,26 @@ import org.syrahtest.core.data.annotation.DataSource;
  */
 public class DataSourceKey {
 
+  private DataSource annotation;
   private DataSource.Dialect dialect;
   private String sourceLocation;
   private boolean cachable = false;
   private String data;
 
-  public static DataSourceKey createCacheableDataSourceKey(DataSource.Dialect dialect, String sourceLocation){
+  public static DataSourceKey createCacheableDataSourceKey(DataSource annotation, String annotationSource){
     DataSourceKey dsk = new DataSourceKey();
-    dsk.dialect = dialect;
-    dsk.sourceLocation = sourceLocation;
+    dsk.annotation = annotation;
+    dsk.dialect = annotation.dialect();
+    dsk.sourceLocation = annotationSource;
     dsk.cachable = true;
     return dsk;
   }
 
-  public static DataSourceKey createNonCacheableDataSourceKey(DataSource.Dialect dialect, String data){
+  public static DataSourceKey createNonCacheableDataSourceKey(DataSource annotation){
     DataSourceKey dsk = new DataSourceKey();
-    dsk.dialect = dialect;
-    dsk.data = data;
+    dsk.annotation = annotation;
+    dsk.dialect = annotation.dialect();
+    dsk.data = annotation.data();
     return dsk;
   }
 
@@ -45,4 +48,6 @@ public class DataSourceKey {
   public String getData() {
     return data;
   }
+
+  public String getFileLocation() { return annotation.file(); };
 }

@@ -49,7 +49,7 @@ public class DataStore {
   public IDataSource getDataSourceInContext() {
     AnnotationProcessor ap = new AnnotationProcessor();
     DataSourceKey dsKey = ap.getDataSourceForThread();
-    activeDataSource = new JSONDataSource(dsKey.getData());
+    activeDataSource = DataSourceFactory.get(dsKey);
     return activeDataSource;
   }
 

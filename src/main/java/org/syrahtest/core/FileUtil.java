@@ -12,9 +12,20 @@ import static java.nio.file.Files.readAllBytes;
  */
 public class FileUtil {
 
-  public static String getClasspathFileAsString(String path) throws URISyntaxException, IOException {
+  /**
+   * Load a file from the classpath
+   * @param path No leading '/'
+   * @return
+   */
+  public static String getClasspathFileAsString(String path) {
 
-    Path p = Paths.get(FileUtil.class.getClassLoader().getResource(path).toURI());
-    return new String(readAllBytes(p));
+    String fileContents = "";
+    try {
+      Path p = Paths.get(FileUtil.class.getClassLoader().getResource(path).toURI());
+      fileContents = new String(readAllBytes(p));
+    } catch (IOException | URISyntaxException e) {
+
+    }
+    return fileContents;
   }
 }
