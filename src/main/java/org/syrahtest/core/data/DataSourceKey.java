@@ -3,6 +3,8 @@ package org.syrahtest.core.data;
 import org.syrahtest.core.data.annotation.DataSource;
 
 /**
+ * Used to lookup a data source.
+ *
  * Created by nate on 11/14/15.
  */
 public class DataSourceKey {

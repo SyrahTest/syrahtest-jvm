@@ -1,5 +1,6 @@
 package org.syrahtest.core;
 
+import mockit.Mocked;
 import org.junit.Test;
 import org.syrahtest.core.data.DataStore;
 import org.syrahtest.core.data.IDataSource;
@@ -43,7 +44,7 @@ public class DataSourceAnnotationTest {
 
   @DataSource(file = "data/simple.json")
   @Test
-  public void replaceTokenUsingJSONFile() {
+  public void replaceTokenUsingJSONFile(@Mocked String shouldNotFailIfArgsArePresent) {
     String result = getDataSourceVariable("some {{token}}");
     assertEquals("some text from JSON File", result);
   }
