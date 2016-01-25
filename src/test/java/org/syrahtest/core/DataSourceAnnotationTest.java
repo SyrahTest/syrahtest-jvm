@@ -5,7 +5,7 @@ import org.junit.Test;
 import org.syrahtest.core.data.DataStore;
 import org.syrahtest.core.data.IDataSource;
 import org.syrahtest.core.data.annotation.DataSource;
-import org.syrahtest.core.resolve.DefaultVariableResolver;
+import org.syrahtest.core.resolve.StringInterpolator;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertSame;
@@ -51,6 +51,6 @@ public class DataSourceAnnotationTest {
 
   private String getDataSourceVariable(String searchString) {
     IDataSource dsc = DataStore.get().getDataSourceInContext();
-    return new DefaultVariableResolver().resolveVariables(searchString, dsc);
+    return new StringInterpolator().resolveVariables(searchString, dsc);
   }
 }

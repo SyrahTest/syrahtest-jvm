@@ -14,10 +14,10 @@ import static org.junit.Assert.assertEquals;
  * Created by nate on 11/14/15.
  */
 @RunWith(JMockit.class)
-public class DefaultVariableResolverTest {
+public class StringInterpolatorTest {
 
   @Mocked private IDataSource IDataSource;
-  @Tested private DefaultVariableResolver resolver;
+  @Tested private StringInterpolator resolver;
 
   @Test
   public void replaceSingleTokenFromDataSource(){

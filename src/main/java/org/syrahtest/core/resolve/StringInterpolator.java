@@ -3,14 +3,24 @@ package org.syrahtest.core.resolve;
 import org.syrahtest.core.data.IDataSource;
 
 /**
- * Created by nate on 11/14/15.
+ * Interpolates (or replaces variables in) strings.
+ *
+ * double brace '{{' syntax is used to not conflict with other language's built in interpolation features (Groovy, C#, etc)
+ *
+ * @author Nate Good
  */
-public class DefaultVariableResolver implements IVariableResolver {
+public class StringInterpolator implements Interpolator<String> {
 
 
   public static final String VARIABLE_START_STRING = "{{";
   public static final String VARIABLE_STOP_STRING = "}}";
 
+  /**
+   *
+   * @param searchString A string that contains variables, for example: "Replace the {{token}} value".
+   * @param dataSource
+   * @return
+   */
   @Override
   public String resolveVariables(String searchString, IDataSource dataSource) {
 
