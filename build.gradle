@@ -28,7 +28,7 @@ dependencies {
     jaxb 'com.sun.xml.bind:jaxb-impl:2.2.11'
     jaxb 'javax.xml.bind:jaxb-api:2.2.12'
 
-    jmockit 'org.jmockit:jmockit:1.22'
+    jmockit 'org.jmockit:jmockit:1.23'
 
     compile 'junit:junit:4.12'
     compile 'org.apache.commons:commons-lang3:3.4'
