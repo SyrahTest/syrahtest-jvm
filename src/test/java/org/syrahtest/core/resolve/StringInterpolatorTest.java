@@ -13,14 +13,13 @@ import static org.junit.Assert.assertEquals;
 /**
  * Created by nate on 11/14/15.
  */
-@RunWith(JMockit.class)
 public class StringInterpolatorTest {
 
   @Mocked private IDataSource IDataSource;
   @Tested private StringInterpolator resolver;
 
   @Test
-  public void replaceSingleTokenFromDataSource(){
+  public void resolveVariables_replaceSingleTokenFromDataSource(){
 
     new Expectations(){
       {
@@ -33,7 +32,7 @@ public class StringInterpolatorTest {
   }
 
   @Test
-  public void returnTokenizedStringWhenDataSourceDoesNotContainToken(){
+  public void resolveVariables_returnTokenizedStringWhenDataSourceDoesNotContainToken(){
 
     String newValue = resolver.resolveVariables("A string that has a {{parameter}} in the middle.", IDataSource);
 

@@ -1,6 +1,7 @@
 .gradle
 .idea
 build/
+classes/
 src/generated
 schema/
 *.iml
